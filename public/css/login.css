@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: lightgray;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form,#response{
+    width: 410px;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+}
+form h1,#dashboard-title{
+    text-align: center;
+    color: indigo;
+}
+form h5{
+    margin-top: 1.5rem ;
+    text-align: center;
+}
+form label{
+    display: block;
+    margin: 1.5rem 0;
+}
+[type="text"],[type="password"]{
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    margin-top: 0.5rem;
+    outline: 1px solid gray;
+    border-radius: 5px;
+}
+form button,#btnCheck{
+    padding: 0.6rem;
+    background-color: indigo;
+    color: white;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+   
+}
+/* //dashboar section */
+
+#response{
+    margin: 1rem 0;
+}
+#token-status{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+#respons-message{
+    margin-top: 2rem;
+}
+#respons-secret{
+    margin: 2rem 0;
+}
