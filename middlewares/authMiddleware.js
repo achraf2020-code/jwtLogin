@@ -1,4 +1,5 @@
 const CustomErrorsApi = require('../customErrors/errors')
+const {UnauthanticatedError} = require('../customErrors')
 const jwt = require('jsonwebtoken')
 const authMiddleware = async (req,res,next)=>{
     const authHeader = req.headers.authorization
@@ -12,7 +13,7 @@ const authMiddleware = async (req,res,next)=>{
         req.user = {id,username}
         next()
     } catch (error) {
-        throw new CustomErrorsApi('unauthorized access to this route',401)
+        throw new UnauthanticatedError('unauthorized access to this route')
     }
   
 }

@@ -2,6 +2,7 @@ require('express-async-errors');
 const asyncWrapper = require('../middlewares/asyncWrapper')
 const jwt = require('jsonwebtoken')
 const CustomErrorsApi = require('../customErrors/errors')
+const {BadRequetError} = require('../customErrors')
 
 module.exports={
     getLogin:asyncWrapper(async(req,res,next)=>{
@@ -10,7 +11,7 @@ module.exports={
     login:asyncWrapper(async(req,res,next)=>{
         const {username,password} = req.body
         if(!username || !password){
-          throw new CustomErrorsApi('Please Provide Username And Password!',400)
+          throw new BadRequetError('Please Provide Username And Password!')
         }
         const id = new Date().getDate()
         const token = jwt.sign({id,username},process.env.JWT_SECRET,{expiresIn:'3d'})
