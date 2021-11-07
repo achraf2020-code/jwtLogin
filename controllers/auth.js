@@ -18,19 +18,8 @@ module.exports={
 
     }),
     dashboard:asyncWrapper(async (req,res,next)=>{
-        const authHeader = req.headers.authorization
-        if(!authHeader || !authHeader.startsWith('Bearer')){
-            throw new CustomErrorsApi('Token Not Provided!',401)
-        }
-        const token = authHeader.split(' ')[1]
-        try {
-            const decode = await jwt.verify(token,process.env.JWT_SECRET)
-            const luckyNumber = Math.floor(Math.random()*100)
-            const {id,username} =decode
-            res.status(200).json({msg:`Hello ${username},`,secret:`Your Lucky Number Is:${luckyNumber}`})
-        } catch (error) {
-            throw new CustomErrorsApi('Not Valid Token',401)
-        }
+        const luckyNumber = Math.floor(Math.random()*100)        
+        res.status(200).json({msg:`Hello ${req.user.username},`,secret:`Your Lucky Number Is:${luckyNumber}`})
         
     })
 }
